@@ -1,0 +1,7 @@
+APP TARIFARIO · MECÁNICA RÁPIDA
+
+1. Para verla en una computadora, abre index.html.
+2. Para usarla como app instalable en celular, sube los 4 archivos a una misma carpeta de un hosting HTTPS.
+3. Luego abre la liga desde Chrome/Safari y usa “Agregar a pantalla de inicio” o “Instalar app”.
+
+Incluye 63 servicios y sus precios sugeridos de mano de obra.

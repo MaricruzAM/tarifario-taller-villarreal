@@ -128,6 +128,18 @@ function norm(s){
   return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 }
 
+// Hace que el buscador trate singular y plural como equivalentes.
+// Ej.: sensor/sensores, freno/frenos, balata/balatas.
+function stemWord(w){
+  if(w.length>4 && w.endsWith('es')) return w.slice(0,-2);
+  if(w.length>3 && w.endsWith('s')) return w.slice(0,-1);
+  return w;
+}
+
+function searchable(s){
+  return norm(s).split(' ').filter(Boolean).map(stemWord).join(' ');
+}
+
 function price(v){
   if(typeof v==='number'){
     return new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(v);
@@ -158,10 +170,11 @@ function renderChips(){
 
 function score(item, term){
   if(!term) return 1;
-  const service=norm(item.servicio);
-  const system=norm(item.sistema);
-  const unit=norm(item.unidad);
-  const specs=norm(item.especificaciones);
+  term=searchable(term);
+  const service=searchable(item.servicio);
+  const system=searchable(item.sistema);
+  const unit=searchable(item.unidad);
+  const specs=searchable(item.especificaciones);
   const bag=[service,system,unit,specs].join(' ');
   if(service===term) return 100;
   if(service.startsWith(term)) return 80;
@@ -223,7 +236,15 @@ vehicleButtons.forEach(b=>b.onclick=()=>{
   render();
 });
 
-q.addEventListener('input',render);
+q.addEventListener('input',()=>{
+  // Al escribir una búsqueda, consulta todo el tarifario.
+  // Así un filtro de categoría previo no oculta resultados sin que el usuario lo note.
+  if(q.value.trim() && active!=='Todos'){
+    active='Todos';
+    renderChips();
+  }
+  render();
+});
 clear.onclick=()=>{q.value='';q.focus();render()};
 
 renderVehicle();

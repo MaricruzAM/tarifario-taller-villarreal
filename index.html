@@ -10,21 +10,65 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
 <style>
-:root { --bg:#f3f4f6; --card:#fff; --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --accent:#111827; --chip:#eef2f7; --price:#0f766e; }
-*{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+:root {
+  --bg:#f3f4f6; --card:#fff; --ink:#111827; --muted:#6b7280; --line:#e5e7eb;
+  --accent:#111827; --chip:#eef2f7; --price:#0f766e; --soft:#f8fafc;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
 .shell{max-width:720px;margin:0 auto;min-height:100vh;padding:18px 14px 42px}
-.header{padding:8px 4px 14px;text-align:center} .brandLogo{display:block;margin:0 auto 10px;max-width:250px;width:100%;height:auto;border-radius:14px;background:#fff;padding:8px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(17,24,39,.06)} .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800} h1{font-size:30px;line-height:1.05;margin:5px 0 6px} .sub{color:var(--muted);font-size:14px}
-.searchWrap{position:sticky;top:0;z-index:10;background:linear-gradient(var(--bg) 82%,transparent);padding:8px 0 14px}
+.header{padding:8px 4px 14px;text-align:center}
+.brandLogo{display:block;margin:0 auto 10px;max-width:250px;width:100%;height:auto;border-radius:14px;background:#fff;padding:8px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(17,24,39,.06)}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800}
+h1{font-size:30px;line-height:1.05;margin:5px 0 6px}
+.sub{color:var(--muted);font-size:14px}
+
+.searchWrap{position:sticky;top:0;z-index:10;background:linear-gradient(var(--bg) 88%,transparent);padding:8px 0 12px}
 .searchBox{background:var(--card);border:1px solid var(--line);box-shadow:0 8px 24px rgba(17,24,39,.07);border-radius:18px;padding:10px;display:flex;gap:8px;align-items:center}
-.searchBox svg{width:22px;height:22px;color:#6b7280;flex:none} input{width:100%;border:0;outline:0;font-size:19px;padding:7px 2px;background:transparent;color:var(--ink)} button.clear{border:0;background:#f3f4f6;border-radius:999px;width:34px;height:34px;font-size:18px;display:none;cursor:pointer}
-.chips{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 10px} .chips::-webkit-scrollbar{display:none} .chip{white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer} .chip.active{background:var(--accent);color:white;border-color:var(--accent)}
-.meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;margin:3px 2px 10px} .meta strong{color:var(--ink)}
-.results{display:grid;gap:10px} .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px 16px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(17,24,39,.035)}
-.system{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:5px} .service{font-size:17px;line-height:1.22;font-weight:800} .price{font-size:25px;font-weight:900;color:var(--price);white-space:nowrap} .note{grid-column:1/-1;border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:12px}
+.searchBox svg{width:22px;height:22px;color:#6b7280;flex:none}
+input{width:100%;border:0;outline:0;font-size:19px;padding:7px 2px;background:transparent;color:var(--ink)}
+button.clear{border:0;background:#f3f4f6;border-radius:999px;width:34px;height:34px;font-size:18px;display:none;cursor:pointer}
+
+.vehicleBox{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px;margin:2px 0 12px;box-shadow:0 2px 10px rgba(17,24,39,.035)}
+.vehicleLabel{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin:0 0 8px 2px}
+.vehicleToggle{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vehicleBtn{border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:13px;padding:11px 12px;font-size:15px;font-weight:800;cursor:pointer}
+.vehicleBtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 10px}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer}
+.chip.active{background:var(--accent);color:white;border-color:var(--accent)}
+.meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;margin:3px 2px 10px}
+.meta strong{color:var(--ink)}
+
+.results{display:grid;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px 16px;box-shadow:0 2px 10px rgba(17,24,39,.035)}
+.cardTop{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}
+.system{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:5px}
+.service{font-size:17px;line-height:1.22;font-weight:800}
+.priceBox{text-align:right}
+.vehicleMini{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:2px}
+.price{font-size:25px;font-weight:900;color:var(--price);white-space:nowrap}
+
+.unitRow{display:flex;align-items:center;gap:7px;margin-top:11px;padding-top:10px;border-top:1px solid var(--line);font-size:13px}
+.unitLabel{font-weight:800;color:var(--muted)}
+.unitValue{font-weight:800;color:var(--ink);background:var(--chip);border-radius:999px;padding:5px 9px}
+
+details{margin-top:9px}
+summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--ink);padding:7px 10px;background:var(--soft);border:1px solid var(--line);border-radius:10px;user-select:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"›";font-size:18px;line-height:1;transform:rotate(90deg);transition:transform .15s ease}
+details[open] summary::after{transform:rotate(-90deg)}
+.specs{margin-top:8px;background:#f8fafc;border-left:3px solid #cbd5e1;border-radius:10px;padding:10px 11px;color:#4b5563;font-size:12.5px;line-height:1.45}
+
 .empty{background:var(--card);border:1px dashed #cbd5e1;border-radius:18px;padding:28px 20px;text-align:center;color:var(--muted)}
 .footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px;line-height:1.45}
 mark{background:#fef3c7;color:inherit;border-radius:4px;padding:0 1px}
-@media (max-width:420px){h1{font-size:27px} .service{font-size:16px} .price{font-size:23px} .card{padding:14px}}
+
+@media (max-width:420px){
+  h1{font-size:27px} .service{font-size:16px} .price{font-size:23px} .card{padding:14px}
+}
 </style>
 </head>
 <body>
@@ -38,33 +82,157 @@ mark{background:#fef3c7;color:inherit;border-radius:4px;padding:0 1px}
 
   <section class="searchWrap">
     <div class="searchBox">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
-      <input id="q" type="search" placeholder="Ej. balatas, aceite, escáner…" autocomplete="off" autofocus />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+      </svg>
+      <input id="q" type="search" placeholder="Ej. balatas, aceite, sensor…" autocomplete="off" />
       <button class="clear" id="clear" aria-label="Limpiar">×</button>
     </div>
   </section>
 
+  <section class="vehicleBox" aria-label="Tipo de vehículo">
+    <div class="vehicleLabel">Tipo de vehículo</div>
+    <div class="vehicleToggle">
+      <button class="vehicleBtn active" data-vehicle="auto" aria-pressed="true">🚗 Auto</button>
+      <button class="vehicleBtn" data-vehicle="camioneta" aria-pressed="false">🚙 Camioneta</button>
+    </div>
+  </section>
+
   <div class="chips" id="chips"></div>
-  <div class="meta"><span id="count"></span><span>63 servicios</span></div>
+  <div class="meta"><span id="count"></span><span id="total"></span></div>
   <section class="results" id="results"></section>
-  <div class="footer">El precio mostrado corresponde a mano de obra sugerida. Refacciones y trabajos adicionales se cotizan por separado.</div>
+
+  <div class="footer">
+    El precio mostrado corresponde a mano de obra sugerida. Refacciones y trabajos adicionales se cotizan por separado.
+  </div>
 </main>
+
 <script>
-const SERVICES=[{"sistema": "Mantenimiento preventivo", "servicio": "Cambio de aceite y filtro", "precio": 350, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Cambio de filtro de aire", "precio": 150, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Cambio de filtro de cabina", "precio": 200, "aliases": ["filtro polen", "aire cabina"]}, {"sistema": "Mantenimiento preventivo", "servicio": "Cambio de bujías", "precio": 400, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Cambio de correas auxiliares", "precio": 550, "aliases": ["banda", "bandas", "correa"]}, {"sistema": "Mantenimiento preventivo", "servicio": "Cambio de líquido de dirección", "precio": 250, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Cambio de líquido refrigerante", "precio": 450, "aliases": ["anticongelante", "coolant"]}, {"sistema": "Mantenimiento preventivo", "servicio": "Rotación de llantas", "precio": 300, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Balanceo de llantas", "precio": 350, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Alineación delantera", "precio": 450, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Alineación y balanceo", "precio": 600, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Inspección multipuntos", "precio": 350, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Reapriete de suspensión", "precio": 400, "aliases": []}, {"sistema": "Mantenimiento preventivo", "servicio": "Cambio de líquido de transmisión", "precio": 650, "aliases": ["aceite transmision", "transmision"]}, {"sistema": "Frenos", "servicio": "Cambio de balatas delanteras", "precio": 450, "aliases": ["pastillas", "frenos delanteros"]}, {"sistema": "Frenos", "servicio": "Cambio de balatas traseras", "precio": 550, "aliases": ["pastillas", "frenos traseros"]}, {"sistema": "Frenos", "servicio": "Rectificado de discos (mano de obra)", "precio": 650, "aliases": []}, {"sistema": "Frenos", "servicio": "Cambio de discos delanteros", "precio": 700, "aliases": []}, {"sistema": "Frenos", "servicio": "Cambio de caliper", "precio": 550, "aliases": []}, {"sistema": "Frenos", "servicio": "Cambio de mangueras de freno", "precio": 450, "aliases": []}, {"sistema": "Frenos", "servicio": "Cambio de zapatas tambor", "precio": 900, "aliases": []}, {"sistema": "Frenos", "servicio": "Cambio de sensor ABS rueda", "precio": 400, "aliases": []}, {"sistema": "Frenos", "servicio": "Sangrado completo", "precio": 450, "aliases": []}, {"sistema": "Frenos", "servicio": "Cambio de líquido de frenos", "precio": 300, "aliases": []}, {"sistema": "Suspensión", "servicio": "Cambio de amortiguadores delanteros", "precio": 900, "aliases": []}, {"sistema": "Suspensión", "servicio": "Cambio de amortiguadores traseros", "precio": 550, "aliases": []}, {"sistema": "Suspensión", "servicio": "Cambio de rótulas", "precio": 900, "aliases": ["rotula", "rotulas"]}, {"sistema": "Suspensión", "servicio": "Cambio de terminales dirección", "precio": 550, "aliases": ["terminal direccion", "terminales"]}, {"sistema": "Suspensión", "servicio": "Cambio de barra estabilizadora (bujes)", "precio": 650, "aliases": []}, {"sistema": "Suspensión", "servicio": "Cambio de bieletas", "precio": 450, "aliases": ["bieleta", "cacahuate"]}, {"sistema": "Suspensión", "servicio": "Cambio de horquilla completa", "precio": 1000, "aliases": []}, {"sistema": "Suspensión", "servicio": "Cambio de topes", "precio": 350, "aliases": []}, {"sistema": "Suspensión", "servicio": "Cambio de cazoletas", "precio": 600, "aliases": []}, {"sistema": "Suspensión", "servicio": "Revisión y ajuste de suspensión", "precio": 450, "aliases": []}, {"sistema": "Dirección", "servicio": "Cambio de depósito hidráulico", "precio": 300, "aliases": []}, {"sistema": "Dirección", "servicio": "Ajuste de eje intermedio", "precio": 350, "aliases": []}, {"sistema": "Dirección", "servicio": "Cambio de junta cardánica", "precio": 600, "aliases": []}, {"sistema": "Dirección", "servicio": "Revisión completa dirección", "precio": 450, "aliases": []}, {"sistema": "Enfriamiento", "servicio": "Cambio de termostato", "precio": 550, "aliases": []}, {"sistema": "Enfriamiento", "servicio": "Cambio de mangueras principales", "precio": 650, "aliases": []}, {"sistema": "Enfriamiento", "servicio": "Cambio de depósito de expansión", "precio": 350, "aliases": []}, {"sistema": "Enfriamiento", "servicio": "Cambio de sensor ECT", "precio": 350, "aliases": []}, {"sistema": "Enfriamiento", "servicio": "Limpieza de sistema (flush)", "precio": 650, "aliases": ["lavado radiador", "flush radiador", "anticongelante"]}, {"sistema": "Enfriamiento", "servicio": "Cambio de tapa radiador", "precio": 150, "aliases": []}, {"sistema": "Enfriamiento", "servicio": "Cambio de switch térmico", "precio": 400, "aliases": []}, {"sistema": "Enfriamiento", "servicio": "Reparación de fuga menor", "precio": 650, "aliases": []}, {"sistema": "Motor", "servicio": "Limpieza de cuerpo de aceleración", "precio": 450, "aliases": []}, {"sistema": "Motor", "servicio": "Cambio de sensor MAP", "precio": 350, "aliases": []}, {"sistema": "Motor", "servicio": "Cambio de sensor MAF", "precio": 350, "aliases": []}, {"sistema": "Transmisión", "servicio": "Servicio de caja automática (aceite/filtro)", "precio": 1100, "aliases": ["transmision automatica", "aceite caja", "servicio transmision"]}, {"sistema": "Transmisión", "servicio": "Cambio de aceite de caja manual", "precio": 450, "aliases": ["transmision manual", "aceite caja"]}, {"sistema": "Transmisión", "servicio": "Cambio de sensor VSS", "precio": 350, "aliases": []}, {"sistema": "Eléctrico / Electrónico", "servicio": "Diagnóstico con escáner OBD-II", "precio": 350, "aliases": ["scanner", "escaner", "check engine", "obd", "diagnostico"]}, {"sistema": "Eléctrico / Electrónico", "servicio": "Cambio de alternador", "precio": 650, "aliases": []}, {"sistema": "Eléctrico / Electrónico", "servicio": "Cambio de motor de arranque", "precio": 650, "aliases": ["marcha", "arranque"]}, {"sistema": "Eléctrico / Electrónico", "servicio": "Cambio de batería", "precio": 200, "aliases": ["bateria", "acumulador"]}, {"sistema": "Eléctrico / Electrónico", "servicio": "Cambio de sensor oxígeno (upstream)", "precio": 400, "aliases": ["sensor o2", "oxigeno"]}, {"sistema": "Eléctrico / Electrónico", "servicio": "Cambio de sensor oxígeno (downstream)", "precio": 450, "aliases": ["sensor o2", "oxigeno"]}, {"sistema": "Eléctrico / Electrónico", "servicio": "Reparación de tierra de chasis", "precio": 350, "aliases": []}, {"sistema": "Aire acondicionado", "servicio": "Carga de gas y detección de fugas", "precio": 550, "aliases": ["clima", "aire acondicionado", "gas a/c", "gas ac"]}, {"sistema": "Aire acondicionado", "servicio": "Cambio de sensor de presión", "precio": 350, "aliases": []}, {"sistema": "Aire acondicionado", "servicio": "Cambio de resistor soplador", "precio": 400, "aliases": []}, {"sistema": "Aire acondicionado", "servicio": "Revisión integral A/A", "precio": 450, "aliases": ["clima", "aire acondicionado", "a/c", "ac"]}];
-const q=document.getElementById('q'), results=document.getElementById('results'), count=document.getElementById('count'), clear=document.getElementById('clear'), chips=document.getElementById('chips');
+const SERVICES=[{"sistema":"Mantenimiento preventivo","servicio":"Cambio de aceite y filtro","unidad":"Servicio completo","auto":350,"camioneta":350,"especificaciones":"Hasta cambio convencional de aceite y filtro; aceite/filtro se cotizan aparte si el tarifario es solo mano de obra."},{"sistema":"Mantenimiento preventivo","servicio":"Cambio de filtro de cabina","unidad":"Por filtro","auto":200,"camioneta":200,"especificaciones":"Precio base con acceso normal. Si requiere desmontar guantera, consola u otros componentes, recotizar."},{"sistema":"Mantenimiento preventivo","servicio":"Cambio de bujías","unidad":"Por juego / motor","auto":"$250–$300","camioneta":"$250–$300","especificaciones":"Precio base para acceso directo. Motores con múltiple de admisión, bobinas complejas o acceso restringido: recotizar."},{"sistema":"Mantenimiento preventivo","servicio":"Banda de accesorios","unidad":"Por banda","auto":"$200–$500","camioneta":"$200–$500","especificaciones":"Varía por acceso, tensor automático/manual y cantidad de componentes a desmontar."},{"sistema":"Mantenimiento preventivo","servicio":"Cambio de líquido de dirección","unidad":"Servicio","auto":100,"camioneta":100,"especificaciones":"Este precio aplica sólo a rellenado. Si es extracción, reemplazo y purga completa, cotizar como servicio distinto."},{"sistema":"Mantenimiento preventivo","servicio":"Cambio de anticongelante","unidad":"Servicio completo","auto":400,"camioneta":400,"especificaciones":"Incluye drenado y rellenado básico. Si requiere purga especial, procedimiento por vacío o desmontajes, recotizar."},{"sistema":"Mantenimiento preventivo","servicio":"Inspección multipuntos","unidad":"Por vehículo","auto":350,"camioneta":350,"especificaciones":"Niveles, luces, presión/estado de llantas, frenos visibles y revisión visual de fugas. No incluye desmontaje ni diagnóstico profundo."},{"sistema":"Frenos","servicio":"Cambio de balatas delanteras","unidad":"Por eje / par","auto":500,"camioneta":600,"especificaciones":"Incluye ambos lados del eje delantero. No incluye rectificado de discos ni reparación de cáliper."},{"sistema":"Frenos","servicio":"Cambio de balatas traseras (tambor)","unidad":"Por eje / par","auto":600,"camioneta":600,"especificaciones":"Incluye ambos lados. Si hay cilindros pegados, resortes dañados o ajuste/reparación adicional, recotizar."},{"sistema":"Frenos","servicio":"Rectificado de discos c/u (mano de obra)","unidad":"Por disco / lado","auto":250,"camioneta":250,"especificaciones":"Mano de obra de desmontaje/montaje por disco. El costo del rectificado externo se cobra aparte si aplica."},{"sistema":"Frenos","servicio":"Cambio de discos delanteros (unidad)","unidad":"Por disco / lado","auto":200,"camioneta":200,"especificaciones":"Precio por un disco. Si se cambian ambos, cobrar x2; balatas se cotizan aparte."},{"sistema":"Frenos","servicio":"Cambio de cáliper","unidad":"Por cáliper / lado","auto":"$400–$600","camioneta":"$600–$1,000","especificaciones":"Precio por lado. Si requiere purga adicional, reparación de rosca/manguera o cáliper eléctrico, recotizar."},{"sistema":"Frenos","servicio":"Cambio de mangueras de freno","unidad":"Por manguera / lado","auto":450,"camioneta":550,"especificaciones":"Incluye purga básica del circuito intervenido. Si se cambian dos lados, cobrar por cada manguera."},{"sistema":"Frenos","servicio":"Relleno de líquido de frenos","unidad":"Servicio","auto":100,"camioneta":100,"especificaciones":"Sólo rellenado. Si el nivel está bajo, revisar posible fuga/desgaste antes de entregar."},{"sistema":"Frenos","servicio":"Cambio de sensor ABS / velocidad de rueda","unidad":"Por sensor / rueda","auto":400,"camioneta":500,"especificaciones":"Precio base con sensor accesible. Si está integrado en maza/balero, sulfatado o requiere desmontaje adicional, recotizar."},{"sistema":"Suspensión","servicio":"Cambio de amortiguadores delanteros (unidad)","unidad":"Por amortiguador / lado","auto":450,"camioneta":550,"especificaciones":"Precio por lado. Si es tipo McPherson y requiere desmontar/armar resorte, considerar complejidad y recotizar cuando aplique."},{"sistema":"Suspensión","servicio":"Cambio de amortiguadores traseros (unidad)","unidad":"Por amortiguador / lado","auto":350,"camioneta":400,"especificaciones":"Precio por lado con acceso normal. Interiores/cajuela o desmontajes especiales pueden aumentar la mano de obra."},{"sistema":"Suspensión","servicio":"Cambio de rótulas (pieza)","unidad":"Por rótula / lado","auto":450,"camioneta":600,"especificaciones":"Si la rótula va prensada, remachada o integrada en horquilla, recotizar según procedimiento."},{"sistema":"Suspensión","servicio":"Cambio de terminales de dirección (pieza)","unidad":"Por terminal / lado","auto":350,"camioneta":450,"especificaciones":"Precio por pieza. Recomendable alineación posterior; alineación no incluida."},{"sistema":"Suspensión","servicio":"Cambio de bujes de barra estabilizadora (par)","unidad":"Por par","auto":400,"camioneta":500,"especificaciones":"Incluye ambos bujes de la barra. Si requiere bajar puente/subchasis, recotizar."},{"sistema":"Suspensión","servicio":"Cambio de bieletas (pieza)","unidad":"Por bieleta / lado","auto":300,"camioneta":400,"especificaciones":"Precio por lado. Si se cambian ambas, cobrar x2."},{"sistema":"Suspensión","servicio":"Cambio de horquilla completa (pieza)","unidad":"Por horquilla / lado","auto":500,"camioneta":650,"especificaciones":"Precio por lado. Si requiere bajar subchasis, liberar tornillería trabada o procedimiento especial, recotizar."},{"sistema":"Suspensión","servicio":"Revisión y ajuste de suspensión","unidad":"Por vehículo","auto":350,"camioneta":450,"especificaciones":"Revisión de holguras y aprietes accesibles. No incluye desmontaje, alineación ni sustitución de piezas."},{"sistema":"Dirección","servicio":"Cambio de bomba de dirección hidráulica","unidad":"Por bomba","auto":700,"camioneta":900,"especificaciones":"Precio base. Si requiere retirar banda, soportes, depósitos o purga compleja, ajustar según acceso."},{"sistema":"Dirección","servicio":"Ajuste de eje intermedio (flecha)","unidad":"Servicio","auto":400,"camioneta":500,"especificaciones":"Sólo ajuste/lubricación cuando sea técnicamente viable. Si requiere sustitución del eje o cruceta, cotizar aparte."},{"sistema":"Dirección","servicio":"Cambio de junta cardánica (cruceta)","unidad":"Por junta","auto":450,"camioneta":650,"especificaciones":"Precio base con acceso normal. Si forma parte de una flecha completa o requiere desmontajes mayores, recotizar."},{"sistema":"Enfriamiento","servicio":"Cambio de termostato","unidad":"Por termostato","auto":600,"camioneta":800,"especificaciones":"Precio base con acceso razonable. Si va bajo múltiple, bomba, carcasa compleja o requiere desmontaje mayor, recotizar."},{"sistema":"Enfriamiento","servicio":"Cambio de mangueras principales","unidad":"Por manguera","auto":500,"camioneta":700,"especificaciones":"Precio por manguera principal. Abrazaderas, conectores rápidos dañados o purga especial se cotizan adicionalmente."},{"sistema":"Enfriamiento","servicio":"Cambio de depósito de expansión","unidad":"Por depósito","auto":350,"camioneta":500,"especificaciones":"Precio base. Incluye sustitución y rellenado básico; purga especial o desmontajes adicionales se cotizan aparte."},{"sistema":"Enfriamiento","servicio":"Cambio de sensor ECT / temperatura de refrigerante","unidad":"Por sensor","auto":350,"camioneta":450,"especificaciones":"Precio base si está accesible. Considerar pérdida de refrigerante y purga; acceso bajo múltiple u otros componentes: recotizar."},{"sistema":"Enfriamiento","servicio":"Limpieza y purga del sistema (flush)","unidad":"Servicio completo","auto":650,"camioneta":650,"especificaciones":"Incluye limpieza/purga convencional. Sistemas con procedimiento especial, vacío o refrigerante específico pueden variar."},{"sistema":"Motor","servicio":"Cambio de sensor MAF / flujo de aire","unidad":"Por sensor","auto":300,"camioneta":400,"especificaciones":"Precio base con acceso directo en ducto/admisión. Diagnóstico y programación no incluidos."},{"sistema":"Motor","servicio":"Cambio de sensor MAP / presión del múltiple","unidad":"Por sensor","auto":300,"camioneta":400,"especificaciones":"Precio base si está accesible. Si requiere desmontar múltiple u otros componentes, recotizar."},{"sistema":"Motor","servicio":"Cambio de sensor IAT / temperatura de aire","unidad":"Por sensor","auto":300,"camioneta":400,"especificaciones":"Precio base con acceso directo. Si viene integrado con MAF/MAP, cotizar según conjunto."},{"sistema":"Motor","servicio":"Cambio de sensor TPS / posición de acelerador","unidad":"Por sensor","auto":400,"camioneta":500,"especificaciones":"Si el TPS viene integrado al cuerpo de aceleración, no aplicar este precio automáticamente; cotizar cuerpo/procedimiento y reaprendizaje si corresponde."},{"sistema":"Motor","servicio":"Cambio de sensor CKP / cigüeñal","unidad":"Por sensor","auto":450,"camioneta":550,"especificaciones":"Precio base. Sensores detrás de polea, motor de arranque, transmisión u otros componentes requieren recotización."},{"sistema":"Motor","servicio":"Cambio de sensor CMP / árbol de levas","unidad":"Por sensor","auto":400,"camioneta":500,"especificaciones":"Precio por sensor. Motores con varios CMP: cobrar por pieza intervenida; acceso complejo se recotiza."},{"sistema":"Motor","servicio":"Cambio de sensor de oxígeno / O2","unidad":"Por sensor","auto":400,"camioneta":500,"especificaciones":"Precio por sensor. Si está pegado por corrosión, requiere calor, reparación de rosca o desmontaje de escape, recotizar."},{"sistema":"Motor","servicio":"Cambio de sensor de detonación / Knock","unidad":"Por sensor","auto":500,"camioneta":650,"especificaciones":"Precio base. Si está bajo el múltiple de admisión u otros componentes, recotizar por desmontaje adicional."},{"sistema":"Motor","servicio":"Cambio de sensor de presión de aceite","unidad":"Por sensor","auto":350,"camioneta":450,"especificaciones":"Precio base con acceso normal. Si requiere desmontaje de componentes o limpieza/reparación de fuga, recotizar."},{"sistema":"Motor","servicio":"Cambio de sensor de presión de combustible","unidad":"Por sensor","auto":400,"camioneta":500,"especificaciones":"Precio base. Confirmar ubicación y despresurizar el sistema; sensores en riel de difícil acceso pueden variar."},{"sistema":"Motor","servicio":"Cambio de sensor de temperatura de aceite","unidad":"Por sensor","auto":350,"camioneta":450,"especificaciones":"Precio base con acceso normal. Si va integrado en cárter/módulo o requiere drenar aceite, ajustar cotización."},{"sistema":"Transmisión","servicio":"Cambio de clutch","unidad":"Servicio completo","auto":2700,"camioneta":3500,"especificaciones":"Precio base de mano de obra. Varía por tracción, tamaño de transmisión, subchasis y dificultad; no incluye rectificado de volante ni piezas."},{"sistema":"Eléctrico / Electrónico","servicio":"Diagnóstico con escáner, lectura básica","unidad":"Por diagnóstico","auto":300,"camioneta":300,"especificaciones":"Lectura de códigos y datos básicos. Pruebas eléctricas, diagnóstico profundo o tiempo adicional se cotizan aparte."},{"sistema":"Eléctrico / Electrónico","servicio":"Cambio de batería","unidad":"Por batería","auto":200,"camioneta":250,"especificaciones":"Cambio físico básico. Vehículos que requieran registro/codificación, respaldo de memoria o desmontajes especiales: recotizar."},{"sistema":"Aire acondicionado","servicio":"Cambio de sensor de presión de A/C","unidad":"Por sensor","auto":350,"camioneta":450,"especificaciones":"Precio base si el sensor puede sustituirse sin recuperar refrigerante. Si requiere descarga/recarga del sistema, se cotiza aparte."}];
+
+const q=document.getElementById('q');
+const results=document.getElementById('results');
+const count=document.getElementById('count');
+const total=document.getElementById('total');
+const clear=document.getElementById('clear');
+const chips=document.getElementById('chips');
+const vehicleButtons=[...document.querySelectorAll('.vehicleBtn')];
+
 let active='Todos';
+let vehicle=localStorage.getItem('tarifarioVehicle') || 'auto';
+if(!['auto','camioneta'].includes(vehicle)) vehicle='auto';
+
 const cats=['Todos',...new Set(SERVICES.map(x=>x.sistema))];
-function norm(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}
-function money(n){return new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n)}
-function renderChips(){chips.innerHTML=cats.map(c=>`<button class="chip ${c===active?'active':''}" data-cat="${c}">${c}</button>`).join(''); chips.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{active=b.dataset.cat;renderChips();render();})}
-function score(item, term){if(!term)return 1; const s=norm(item.servicio), sys=norm(item.sistema), a=norm((item.aliases||[]).join(' ')); if(s===term)return 100; if(s.startsWith(term))return 80; if(s.includes(term))return 60; if(a.includes(term))return 50; if(sys.includes(term))return 20; const words=term.split(' ').filter(Boolean); const bag=s+' '+a+' '+sys; return words.every(w=>bag.includes(w))?40:0}
-function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function render(){const term=norm(q.value); clear.style.display=q.value?'block':'none'; let arr=SERVICES.map(x=>[x,score(x,term)]).filter(([x,sc])=>sc>0 && (active==='Todos'||x.sistema===active)).sort((a,b)=>b[1]-a[1]||a[0].servicio.localeCompare(b[0].servicio,'es')).map(x=>x[0]); count.innerHTML=`<strong>${arr.length}</strong> resultado${arr.length===1?'':'s'}`;
- if(!arr.length){results.innerHTML=`<div class="empty"><b>No encontré ese servicio.</b><br><br>Prueba con otra palabra, por ejemplo: <i>frenos</i>, <i>aceite</i>, <i>batería</i> o <i>clima</i>.</div>`;return}
- results.innerHTML=arr.map(x=>`<article class="card"><div><div class="system">${esc(x.sistema)}</div><div class="service">${esc(x.servicio)}</div></div><div class="price">${money(x.precio)}</div></article>`).join('');
+
+function norm(s){
+  return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 }
-q.addEventListener('input',render); clear.onclick=()=>{q.value='';q.focus();render()}; renderChips(); render();
-if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+
+function price(v){
+  if(typeof v==='number'){
+    return new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(v);
+  }
+  return String(v||'—');
+}
+
+function esc(s){
+  return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+function renderVehicle(){
+  vehicleButtons.forEach(b=>{
+    const on=b.dataset.vehicle===vehicle;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-pressed',String(on));
+  });
+}
+
+function renderChips(){
+  chips.innerHTML=cats.map(c=>`<button class="chip ${c===active?'active':''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+  chips.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
+    active=b.dataset.cat;
+    renderChips();
+    render();
+  });
+}
+
+function score(item, term){
+  if(!term) return 1;
+  const service=norm(item.servicio);
+  const system=norm(item.sistema);
+  const unit=norm(item.unidad);
+  const specs=norm(item.especificaciones);
+  const bag=[service,system,unit,specs].join(' ');
+  if(service===term) return 100;
+  if(service.startsWith(term)) return 80;
+  if(service.includes(term)) return 60;
+  const words=term.split(' ').filter(Boolean);
+  return words.every(w=>bag.includes(w)) ? 40 : 0;
+}
+
+function render(){
+  const term=norm(q.value);
+  clear.style.display=q.value?'block':'none';
+
+  let arr=SERVICES
+    .map(x=>[x,score(x,term)])
+    .filter(([x,sc])=>sc>0 && (active==='Todos'||x.sistema===active))
+    .sort((a,b)=>b[1]-a[1]||a[0].servicio.localeCompare(b[0].servicio,'es'))
+    .map(x=>x[0]);
+
+  count.innerHTML=`<strong>${arr.length}</strong> resultado${arr.length===1?'':'s'}`;
+  total.textContent=`${SERVICES.length} servicios`;
+
+  if(!arr.length){
+    results.innerHTML=`<div class="empty"><b>No encontré ese servicio.</b><br><br>Prueba con otra palabra, por ejemplo: <i>frenos</i>, <i>aceite</i>, <i>batería</i> o <i>sensor</i>.</div>`;
+    return;
+  }
+
+  const vehicleLabel=vehicle==='auto'?'Auto':'Camioneta';
+
+  results.innerHTML=arr.map(x=>`
+    <article class="card">
+      <div class="cardTop">
+        <div>
+          <div class="system">${esc(x.sistema)}</div>
+          <div class="service">${esc(x.servicio)}</div>
+        </div>
+        <div class="priceBox">
+          <div class="vehicleMini">${vehicleLabel}</div>
+          <div class="price">${esc(price(x[vehicle]))}</div>
+        </div>
+      </div>
+
+      <div class="unitRow">
+        <span class="unitLabel">Cobro:</span>
+        <span class="unitValue">${esc(x.unidad)}</span>
+      </div>
+
+      <details>
+        <summary>Ver especificaciones</summary>
+        <div class="specs">${esc(x.especificaciones)}</div>
+      </details>
+    </article>
+  `).join('');
+}
+
+vehicleButtons.forEach(b=>b.onclick=()=>{
+  vehicle=b.dataset.vehicle;
+  localStorage.setItem('tarifarioVehicle',vehicle);
+  renderVehicle();
+  render();
+});
+
+q.addEventListener('input',render);
+clear.onclick=()=>{q.value='';q.focus();render()};
+
+renderVehicle();
+renderChips();
+render();
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
 </script>
 </body>
 </html>
